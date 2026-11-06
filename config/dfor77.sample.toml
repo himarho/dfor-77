@@ -1,0 +1,63 @@
+[discord]
+token_env = "DISCORD_BOT_TOKEN"
+api_version = 10
+intents = ["GUILDS", "GUILD_MESSAGES", "MESSAGE_CONTENT", "GUILD_MEMBERS"]
+
+[gateway]
+encoding = "json"
+compression = "none"
+shard_id = 0
+shard_count = 1
+identify_max_wait_ms = 600000
+daily_identify_warn = 800
+daily_identify_stop = 950
+live = true
+next_event_timeout_ms = 250
+
+[rest]
+request_timeout_ms = 30000
+http_timeout_ms = 10000
+timeout_margin_ms = 1000
+delete_max_wait_ms = 10000
+timeout_max_wait_ms = 10000
+send_max_wait_ms = 10000
+read_max_wait_ms = 10000
+base_url = "https://discord.com"
+global_max_wait_ms = 10000
+invalid_budget_warn = 6000
+invalid_budget_recover = 7000
+invalid_budget_stop = 8000
+
+[snapshot]
+event_queue_capacity = 4096
+event_queue_max_bytes = 16777216
+cache_max_bytes = 67108864
+message_snapshot_ttl_ms = 86400000
+message_snapshot_max_entries = 200000
+message_snapshot_channel_allowlist = []
+message_tombstone_ttl_ms = 86400000
+message_tombstone_max_entries = 200000
+member_snapshot_ttl_ms = 86400000
+member_snapshot_max_entries = 200000
+member_tombstone_ttl_ms = 86400000
+member_tombstone_max_entries = 200000
+bot_member_snapshot_ttl_ms = 86400000
+thread_member_snapshot_ttl_ms = 86400000
+resource_snapshot_max_entries = 200000
+resource_tombstone_ttl_ms = 86400000
+resource_tombstone_max_entries = 200000
+
+[audit]
+path = "./dfor77-audit.jsonl"
+content_mode = "hash"
+content_preview_bytes = 0
+hash_key_env = "DFOR77_AUDIT_HASH_KEY"
+
+[runtime]
+log_path = "./dfor77-runtime.jsonl"
+log_rest_success = true
+log_gateway_events = true
+
+[mode]
+dry_run = false
+log_only = false

@@ -1,0 +1,99 @@
+[package]
+name = "dfor77"
+version = "0.3.0"
+edition = "2021"
+rust-version = "1.85"
+authors = ["dfor77 contributors"]
+license = "LGPL-3.0-only"
+description = "Discord Bot runtime and API wrapper for FORTRAN77 (ANSI X3.9-1978) programs"
+readme = "README.md"
+documentation = "https://docs.rs/dfor77"
+repository = "https://github.com/himarho/dfor-77"
+homepage = "https://github.com/himarho/dfor-77"
+keywords = ["discord", "fortran77", "bot", "gateway", "api"]
+categories = ["api-bindings", "command-line-utilities"]
+default-run = "dfor77"
+include = [
+    "/Cargo.lock",
+    "/Cargo.toml",
+    "/CHANGELOG.md",
+    "/COPYING",
+    "/COPYING.LESSER",
+    "/DEVELOPMENT.md",
+    "/Makefile",
+    "/README.md",
+    "/SECURITY.md",
+    "/config/dfor77.sample.toml",
+    "/extension/dfor77_extension.f",
+    "/fortran/dfor77_wrapper.f",
+    "/include/dfor77.inc",
+    "/src/audit.rs",
+    "/src/audit/text.rs",
+    "/src/config.rs",
+    "/src/config/parse.rs",
+    "/src/constants.rs",
+    "/src/gateway.rs",
+    "/src/gateway/debug.rs",
+    "/src/gateway/limits.rs",
+    "/src/gateway/members.rs",
+    "/src/gateway/threads.rs",
+    "/src/gateway/guild.rs",
+    "/src/gateway/authority.rs",
+    "/src/gateway/payload.rs",
+    "/src/gateway/request_limit.rs",
+    "/src/duration.rs",
+    "/src/gateway_session.rs",
+    "/src/ipc.rs",
+    "/src/json.rs",
+    "/src/lib.rs",
+    "/src/event_queue.rs",
+    "/src/memory.rs",
+    "/src/main.rs",
+    "/src/bot_process.rs",
+    "/src/network.rs",
+    "/src/network/resolver.rs",
+    "/src/permission.rs",
+    "/src/private_file.rs",
+    "/src/rest.rs",
+    "/src/rest/rate_limit.rs",
+    "/src/rest/http.rs",
+    "/src/rest/path.rs",
+    "/src/rest/debug.rs",
+    "/src/runtime.rs",
+    "/src/runtime/permissions.rs",
+    "/src/runtime/mutations.rs",
+    "/src/runtime/reads.rs",
+    "/src/runtime/gateway_send.rs",
+    "/src/snapshot.rs",
+    "/src/snapshot/debug.rs",
+    "/src/snapshot/cache.rs",
+    "/src/snapshot/parse.rs",
+    "/src/snapshot/member.rs",
+    "/src/snapshot/authority.rs",
+    "/src/snapshot/channel.rs",
+    "/src/snapshot/archive.rs",
+    "/src/snapshot/message.rs",
+    "/src/snapshot/revision.rs",
+    "/src/snapshot/webhook.rs",
+    "/src/validation.rs",
+]
+
+[lib]
+name = "dfor77"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dfor77"
+path = "src/main.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+deprecated_safe_2024 = "forbid"
+
+[dependencies]
+chrono = { version = "0.4.45", default-features = false, features = ["std"] }
+native-tls = "0.2.18"
+tungstenite = { version = "0.30.0", default-features = false, features = ["handshake", "native-tls"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.191"
